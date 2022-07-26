@@ -1,10 +1,16 @@
-import React from 'react'
+import Link from 'next/link'
+import React, { useEffect } from 'react'
+
 
 type Props = {}
 
 const ProductList = (props: Props) => {
+  
   return (
-    <div>ProductList</div>
+    <div>
+      noi dung thay doi
+    </div>
+
   )
 }
 
