@@ -24,13 +24,13 @@ const card = (props: Props) => {
                     <p className="name p-6">Armani black suit</p>
                 </td>
                 <td className="text-[#ff6c8d]">550,000 ₫</td>
-                <td>
+                {/* <td>
                     <div className="buttons_added">
                         <input className="hiep" onClick="var result = document.getElementById('quantity'); var qty = result.value; if( !isNaN(qty) &amp; qty > 1 ) result.value--;return false;" type='button' value='-' />
                     <input id='quantity' min='1' name='quantity' type='text' value='1' />
                     <input className="hiep" onClick="var result = document.getElementById('quantity'); var qty = result.value; if( !isNaN(qty)) result.value++;return false;" type='button' value='+' />
                     </div>
-                </td>
+                </td> */}
                 <td className="text-[#ff6c8d]">550,000 ₫</td>
               </tr>   
             </tbody>

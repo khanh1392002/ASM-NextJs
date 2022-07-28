@@ -31,9 +31,9 @@ const Header = (props: Props) => {
                 </div>
                 <nav id={style.nav} className={style.menu}>
                     <ul className={style.list}>
-                        <li className={style.list_item}><Link href="">TRANG CHỦ</Link></li>
+                        <li className={style.list_item}><Link href="/">TRANG CHỦ</Link></li>
                         <li className={style.list_item}><Link href="">GIỚI THIỆU</Link></li>
-                        <li className={style.list_item}><Link href="">CỬA HÀNG</Link></li>
+                        <li className={style.list_item}><Link href="products">CỬA HÀNG</Link></li>
                         <li className={style.list_item}><Link href="">TIN TỨC</Link></li>
                         <li className={style.list_item}><Link href="">LIÊN HỆ</Link></li>
                     </ul>
