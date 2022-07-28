@@ -6,7 +6,7 @@ const card = (props: Props) => {
   return (
     <div>
            <main>
-    <div className="content mx-auto w-[1270px] pt-20 pb-20 hi">
+    <div className="content mx-auto w-[1270px] pt-20 pb-20 hi flex justify-between">
         <div className="cart">
         <table className="table-auto">
             <thead>
@@ -43,7 +43,7 @@ const card = (props: Props) => {
         <div className="rol"></div>
         <div className="detail-cart">
             <h2 className="br">TỔNG SỐ LƯỢNG</h2>
-              <div className="br hi1 pd">
+              <div className="br hi1 pd flex justify-between">
                 <p>Tổng phụ</p>
                 <p className="text-[#ff6c8d]">550,000 ₫</p>
               </div>
@@ -57,11 +57,11 @@ const card = (props: Props) => {
               <div className="giaohang text-right br">
                 <a href="">Tính phí giao hàng</a>
               </div>
-              <div className="hi1 br pd">
+              <div className="br hi1 pd flex justify-between">
                 <p>Tổng</p>
                 <p className="text-[#ff6c8d]">550,000 ₫</p>
               </div>
-           <button className="btn m-auto bg-[#d26e4b] p-10 w-[100%]">Tiến Hành Thanh Toán</button>
+           <button className="btn m-auto bg-[#d26e4b] p-2 w-[100%]">Tiến Hành Thanh Toán</button>
         </div>
     </div>
 </main>
