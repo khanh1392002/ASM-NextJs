@@ -1,0 +1,50 @@
+body{
+    font-family: "Lora", sans-serif;
+}
+.cate{
+    background-color: #fff;
+    padding: 20px 0 0 0;
+    border: 1px solid #eee;
+}
+.cate samp{
+    margin-left: 25px;
+}
+.cate a{
+    margin-left: 25px;
+}
+.product{
+    display: grid;
+    grid-template-columns: 246px auto;
+    gap: 30px;
+}
+.price{
+    text-align: center;
+    white-space: nowrap;
+    color: #ff6c8d;
+    font-weight: bold;
+}
+.product-mian{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    background-color: #fff;
+    gap: 30px;
+}
+.name  {
+    text-align: center;
+}
+.product-small{
+    border: 1px solid white;
+}
+.name.product-title a {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    height: 1.3em;
+    margin-bottom: 0.8em;
+    font-weight: 700;
+}
+.titi{ 
+    padding: 10px 10px 10px 20px;
+}
