@@ -1,11 +1,14 @@
-import React from 'react'
-import css from '../../styles/style.css'
+import Link from 'next/link'
+import React, { useEffect } from 'react'
+
+
 type Props = {}
 
 const ProductList = (props: Props) => {
+  
   return (
     <div>
-       <main>
+      <main>
         <div className="content w-[1230px] mx-auto pb-20">
             <div className="title flex justify-between pt-20">
                 <div className="title-product flex text-xl ">

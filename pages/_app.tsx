@@ -1,9 +1,13 @@
 import '../styles/globals.css'
+import { AppPropsWithLayout } from '../model/layout'
+import Layout from '../components/Layout';
+import { AppProps } from 'next/app';
 import '../styles/style.css'
-import type { AppProps } from 'next/app'
-
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+
+ const LayoutWrapper = Component.Layout ?? Layout;
+  
+  return (<LayoutWrapper><Component {...pageProps} /></LayoutWrapper>)
 }
 
 export default MyApp
