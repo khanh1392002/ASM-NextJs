@@ -4,34 +4,24 @@ type Props = {}
 
 const admin = (props: Props) => {
     return (
-        <div>
-            <div id="wrapper">
-                <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-                    <a className="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                        <div className="sidebar-brand-icon rotate-n-15">
-                            <i className="fas fa-laugh-wink"></i>
-                        </div>
-                        <div className="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
-                    </a>
-                    <li className="nav-item active">
-                        <a className="nav-link" href="index.html">
-                            <span>Dashboard</span></a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                            aria-expanded="true" aria-controls="collapseTwo">
-                            <i className="fas fa-fw fa-cog"></i>
-                            <span>List</span>
-                        </a>
-                        <div id="collapseTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                            <div className="bg-white py-2 collapse-inner rounded">
-                                <a className="collapse-item" href="">Product</a>
-                                <a className="collapse-item" href="">Category</a>
-                                <a className="collapse-item" href="">User</a>
-                            </div>
-                        </div>
-                    </li>
+        <div className="flex" >
+            <div className="w-1/6 h-screen bg-stone-300 text-center">
+            <a href="index.html" className="no-underline text-6xl"> Admin</a>
+                <ul className="p-0 my-20" >
+                            <li className="my-8 text-4xl hover:border-slate-900 hover:border-2 py-3 hover:border-solid "><a className="no-underline text-black " href="" >Product</a></li>
+                            <li className="my-8 text-4xl hover:border-slate-900 hover:border-2 py-3 hover:border-solid"><a className="no-underline text-black " href="">Category</a></li>
+                            <li className="my-8 text-4xl hover:border-slate-900 hover:border-2 py-3 hover:border-solid"><a className="no-underline text-black " href="">User</a></li>
                 </ul>
+            </div>
+            <div>
+                <table>
+                    <thead>
+                        <tr>ID</tr>
+                        <tr>Name</tr>
+                        <tr></tr>
+                        <tr></tr>
+                    </thead>
+                </table>
             </div>
         </div>
     )

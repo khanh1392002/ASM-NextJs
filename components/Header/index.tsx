@@ -1,7 +1,8 @@
 import Link from 'next/link'
-import React, { useEffect } from 'react'
+import React, { Children, useEffect } from 'react'
 import style from './header.module.css'
 type Props = {}
+
 
 const Header = (props: Props) => {
     useEffect(() => {
@@ -41,6 +42,7 @@ const Header = (props: Props) => {
             </header>
 
         </div>
+       
     )
 }
 
