@@ -4,7 +4,7 @@ type Props = {}
 
 const Footer = (props: Props) => {
     return (
-        <div>
+        <div className='mt-[200px]'>
             <div className={style.footer}>
                 <div className={style.container}>
                     <div className={style.contact}>

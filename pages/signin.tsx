@@ -4,8 +4,8 @@ type Props = {}
 
 const Signin = (props: Props) => {
   return (
-    <div className={`bg-fuchsia-600 h-screen relative`}>
-        <div className={`bg-white absolute left-1/3 top-48 text-center`}>
+    <div className={` h-screen relative`}>
+        <div className={` border-slate-900 border border-solid rounded-2xl bg-white absolute left-1/3 top-48 text-center`}>
         <h1 className={`text-6xl py-8 px-8 `}>Login Form</h1>
         <div className={`auth flex justify-center pb-8 px-32`}>
             <div className={` border-slate-900 border py-3  border-solid rounded  bg-fuchsia-600`}>

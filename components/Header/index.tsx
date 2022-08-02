@@ -17,9 +17,9 @@ const Header = (props: Props) => {
                 <div className={style.container}>
                     <div className={style.header_top}>
                         <ul className={style.header_top__list}>
-                            <li className={style.header_top__item}><a href="#">Đăng Nhập</a></li>
+                            <li className={style.header_top__item}><a href="signup">Đăng Nhập</a></li>
                             <li>/ </li>
-                            <li className={style.header_top__item}><a href="#">Đăng Ký</a></li>
+                            <li className={style.header_top__item}><a href="signin">Đăng Ký</a></li>
                         </ul>
                         <div className={style.header_inner__img}>
                             <img src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/logo-mona.png" />
