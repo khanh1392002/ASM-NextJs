@@ -7,6 +7,9 @@ export const getall = (url:string) =>{
 export const getone = (id:string) =>{
     return instance.get(`/categorys/${id}`)
 }
+export const removect = (id:string) =>{
+    return instance.delete(`/category/${id}`)
+}
 export const addct = (cate:CateType) =>{
     return instance.post('/categorys',cate)
 }

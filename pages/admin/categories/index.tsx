@@ -1,12 +1,20 @@
 import Link from 'next/link'
 import React from 'react'
+import { removect } from '../../../api/categories'
 import adminlayout from '../../../components/Layout/adminlayout'
 import usercategories from '../../../hooks/categories'
+import { CateType } from '../../../type/categories'
 
 type Props = {}
 
 const Categories = (props: Props) => {
   const { data, error, mutate } = usercategories()
+  const remove = (cate:CateType) =>{
+    const confirm = window.confirm(`Bạn có muốn xóa: ${cate.name}`)
+    if(confirm){
+      removect(`${cate._id}`)
+    }
+  }
   if (!data) return <div>Loading...</div>
   if (error) return <div>Errors</div>
 
@@ -34,7 +42,7 @@ const Categories = (props: Props) => {
                     </Link>
                   </td>
                   <td className='text-center'>
-                    <button className='inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'>
+                    <button onClick={()=>remove(item)} className='inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500'>
                       Remove
                     </button>
                   </td>
