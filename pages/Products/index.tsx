@@ -1,11 +1,14 @@
 import Link from 'next/link'
 import React, { useEffect } from 'react'
+import useProduct from '../../hooks/product'
 
 
 type Props = {}
 
 const ProductList = (props: Props) => {
-  
+    const {data,error,mutate} = useProduct()
+    if(!data) return <div>Loading....</div>
+    if(error) return <div>Error !</div>
   return (
     <div>
       <main>
@@ -84,8 +87,11 @@ const ProductList = (props: Props) => {
                         </ul>
                     </div>
                 </div>
+                
                 <div className="product-mian">
-                    <div className="product-small box shadow hover:shadow-lg">
+                {data.map(item=>(
+                        // eslint-disable-next-line react/jsx-key
+                        <div className="product-small box shadow hover:shadow-lg">
                         <div className="product-img">
                             <img className="w-[100%] h-[100%]"
                                 src="https://res.cloudinary.com/fptpolytechnic/image/upload/v1658384856/samples/41-450x585-1_scfdfj.jpg"
@@ -99,118 +105,7 @@ const ProductList = (props: Props) => {
                             <p className="price">550,000₫</p>
                         </div>
                     </div>
-                    <div className="product-small box shadow hover:shadow-lg">
-                        <div className="product-img">
-                            <img className="w-[100%] h-[100%]"
-                                src="https://res.cloudinary.com/fptpolytechnic/image/upload/v1658384856/samples/41-450x585-1_scfdfj.jpg"
-                                alt=""/>
-                        </div>
-                        <div className="titi">
-                            <div className="name product-title">
-                                <a href="http://mauweb.monamedia.net/vanibeauty/san-pham/armani-black-suit/">Armani
-                                    black suit</a>
-                            </div>
-                            <div className="price-wrapper">
-                                <p className="price">550,000₫</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="product-small box shadow hover:shadow-lg">
-                        <div className="product-img">
-                            <img className="w-[100%] h-[100%]"
-                                src="https://res.cloudinary.com/fptpolytechnic/image/upload/v1658384856/samples/41-450x585-1_scfdfj.jpg"
-                                alt="" />
-                        </div>
-                        <div className="titi">
-                            <div className="name product-title">
-                                <a href="http://mauweb.monamedia.net/vanibeauty/san-pham/armani-black-suit/">Armani
-                                    black suit</a>
-                            </div>
-                            <div className="price-wrapper">
-                                <p className="price">550,000₫</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="product-small box shadow hover:shadow-lg">
-                        <div className="product-img">
-                            <img className="w-[100%] h-[100%]"
-                                src="https://res.cloudinary.com/fptpolytechnic/image/upload/v1658384856/samples/41-450x585-1_scfdfj.jpg"
-                                alt=""/>
-                        </div>
-                        <div className="titi">
-                            <div className="name product-title">
-                                <a href="http://mauweb.monamedia.net/vanibeauty/san-pham/armani-black-suit/">Armani
-                                    black suit</a>
-                            </div>
-                            <div className="price-wrapper">
-                                <p className="price">550,000₫</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="product-small box shadow hover:shadow-lg">
-                        <div className="product-img">
-                            <img className="w-[100%] h-[100%]"
-                                src="https://res.cloudinary.com/fptpolytechnic/image/upload/v1658384856/samples/41-450x585-1_scfdfj.jpg"
-                                alt=""/>
-                        </div>
-                        <div className="titi">
-                            <div className="name product-title">
-                                <a href="http://mauweb.monamedia.net/vanibeauty/san-pham/armani-black-suit/">Armani
-                                    black suit</a>
-                            </div>
-                            <div className="price-wrapper">
-                                <p className="price">550,000₫</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="product-small box shadow hover:shadow-lg">
-                        <div className="product-img">
-                            <img className="w-[100%] h-[100%]"
-                                src="https://res.cloudinary.com/fptpolytechnic/image/upload/v1658384856/samples/41-450x585-1_scfdfj.jpg"
-                                alt=""/>
-                        </div>
-                        <div className="titi">
-                            <div className="name product-title">
-                                <a href="http://mauweb.monamedia.net/vanibeauty/san-pham/armani-black-suit/">Armani
-                                    black suit</a>
-                            </div>
-                            <div className="price-wrapper">
-                                <p className="price">550,000₫</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="product-small box shadow hover:shadow-lg">
-                        <div className="product-img">
-                            <img className="w-[100%] h-[100%]"
-                                src="https://res.cloudinary.com/fptpolytechnic/image/upload/v1658384856/samples/41-450x585-1_scfdfj.jpg"
-                                alt=""/>
-                        </div>
-                        <div className="titi">
-                            <div className="name product-title">
-                                <a href="http://mauweb.monamedia.net/vanibeauty/san-pham/armani-black-suit/">Armani
-                                    black suit</a>
-                            </div>
-                            <div className="price-wrapper">
-                                <p className="price">550,000₫</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="product-small box shadow hover:shadow-lg">
-                        <div className="product-img">
-                            <img className="w-[100%] h-[100%]"
-                                src="https://res.cloudinary.com/fptpolytechnic/image/upload/v1658384856/samples/41-450x585-1_scfdfj.jpg"
-                                alt="" />
-                        </div>
-                        <div className="titi">
-                            <div className="name product-title">
-                                <a href="http://mauweb.monamedia.net/vanibeauty/san-pham/armani-black-suit/">Armani
-                                    black suit</a>
-                            </div>
-                            <div className="price-wrapper">
-                                <p className="price">550,000₫</p>
-                            </div>
-                        </div>
-                    </div>
+                ))}
                 </div>
 
             </div>
