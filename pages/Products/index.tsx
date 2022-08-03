@@ -94,15 +94,15 @@ const ProductList = (props: Props) => {
                         <div className="product-small box shadow hover:shadow-lg">
                         <div className="product-img">
                             <img className="w-[100%] h-[100%]"
-                                src="https://res.cloudinary.com/fptpolytechnic/image/upload/v1658384856/samples/41-450x585-1_scfdfj.jpg"
+                                src={`${item.image}`}
                                 alt=""/>
                         </div>
                         <div className="name product-title">
-                            <a href="http://mauweb.monamedia.net/vanibeauty/san-pham/armani-black-suit/">Armani black
-                                suit</a>
+                            <a href="http://mauweb.monamedia.net/vanibeauty/san-pham/armani-black-suit/">{item.name}
+                                </a>
                         </div>
                         <div className="price-wrapper">
-                            <p className="price">550,000₫</p>
+                            <p className="price">{item.price}</p>
                         </div>
                     </div>
                 ))}
