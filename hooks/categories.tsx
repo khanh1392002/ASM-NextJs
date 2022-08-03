@@ -7,6 +7,7 @@ const usercategories = () =>{
         const {data} = await getall(url)
         return data
     } 
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const {data,error,mutate} = useSWR('/categorys',fetcher,{dedupingInterval:3000})
 
     const creatct = async (item:CateType) =>{
