@@ -1,8 +1,15 @@
 import React from 'react'
-
+import {SubmitHandler, useForm} from 'react-hook-form'
 type Props = {}
-
+type signIn = {
+    email: string,
+    password: string
+}
+const onSubmit = () => alert('ok');
 const Signin = (props: Props) => {
+    const {register, handleSubmit, formState:{errors}} = useForm<signIn>()
+    // const onSubmit: SubmitHandler<signIn> = ();
+    
   return (
     <div className={` h-screen relative`}>
         <div className={` border-slate-900 border border-solid rounded-2xl bg-white absolute left-1/3 top-48 text-center`}>
@@ -16,12 +23,24 @@ const Signin = (props: Props) => {
             </div>
         </div>
         <div className="form">
-            <form action="">
+            <form action="" onSubmit={handleSubmit(onSubmit)}>
                 <div >
-                    <input className={`p-4  my-4 border-slate-900 border w-96 border-solid rounded`} type="email" placeholder='Email Address'  />
+                    <input className={`p-4  my-4 border-slate-900 border w-96 border-solid rounded`} type="email" placeholder='Email Address' 
+                        {...register('email',{required:true})}/>
+                        {Object.keys(errors).length !== 0 && (
+                            <ul>
+                                {errors.email?.type == 'required' && (<li className='text-[red]'>Không được để trống</li>)}
+                            </ul>
+                        )}
                 </div>
                 <div >
-                    <input className={`p-4  my-4 border-slate-900 border w-96 border-solid rounded`} type="password" placeholder='Password'  />
+                    <input className={`p-4  my-4 border-slate-900 border w-96 border-solid rounded`} type="password" placeholder='Password'  
+                    {...register('password',{required:true})}/>
+                    {Object.keys(errors).length !== 0 && (
+                        <ul>
+                        {errors.password?.type == 'required' && (<li className='text-[red]'>Không được trống</li>)}
+                        </ul>
+                    )}
                 </div>
                 <div className={`text-left pl-32 text-purple-600 my-2`}>
                     <a href="">Forgot Password</a>
