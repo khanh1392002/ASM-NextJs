@@ -91,17 +91,18 @@ const ProductList = (props: Props) => {
                 <div className="product-mian">
                 {data.map(item=>(
                         // eslint-disable-next-line react/jsx-key
-                        <div className="product-small box shadow hover:shadow-lg">
+                    <div className="product-small box shadow 0 h-fit hover:shadow-lg">
                         <div className="product-img">
-                            <img className="w-[100%] h-[100%]"
+                            <img  className="w-[100%] h-[208px]"
                                 src={`${item.image}`}
                                 alt=""/>
                         </div>
-                        <div className="name product-title">
-                            <a href="http://mauweb.monamedia.net/vanibeauty/san-pham/armani-black-suit/">{item.name}
-                                </a>
+                        <div className="name product-title pt-[10px]">
+                            <Link href={`Products/${item._id}`}>
+                                {item.name}
+                            </Link>
                         </div>
-                        <div className="price-wrapper">
+                        <div className="price-wrapper pb-[10px]">
                             <p className="price">{item.price}</p>
                         </div>
                     </div>
