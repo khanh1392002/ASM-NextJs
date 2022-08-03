@@ -26,19 +26,21 @@ const Signin = (props: Props) => {
             <form action="" onSubmit={handleSubmit(onSubmit)}>
                 <div >
                     <input className={`p-4  my-4 border-slate-900 border w-96 border-solid rounded`} type="email" placeholder='Email Address' 
-                        {...register('email',{required:true})}/>
+                        {...register('email',{required:true, minLength:{value: 6, message: "Phải lớn hơn 6 ký tự"}})}/>
                         {Object.keys(errors).length !== 0 && (
                             <ul>
                                 {errors.email?.type == 'required' && (<li className='text-[red]'>Không được để trống</li>)}
+                                {errors.email?.message && <p className='text-[red]'>{errors.email.message}</p>}
                             </ul>
                         )}
                 </div>
                 <div >
                     <input className={`p-4  my-4 border-slate-900 border w-96 border-solid rounded`} type="password" placeholder='Password'  
-                    {...register('password',{required:true})}/>
+                    {...register('password',{required:true, minLength:{value: 8, message: "Phải lớn hơn 8 ký tự"}})}/>
                     {Object.keys(errors).length !== 0 && (
                         <ul>
-                        {errors.password?.type == 'required' && (<li className='text-[red]'>Không được trống</li>)}
+                            {errors.password?.type == 'required' && (<li className='text-[red]'>Không được trống</li>)}
+                            {errors.password?.message && <p className='text-[red]'>{errors.password.message}</p>}
                         </ul>
                     )}
                 </div>

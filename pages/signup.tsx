@@ -1,8 +1,15 @@
 import React from 'react'
-
+import {SubmitHandler, useForm} from 'react-hook-form'
 type Props = {}
-
+type signUp = {
+    name: string,
+    email: string,
+    password: string
+}
+const onSubmit = () => alert('ok');
 const Signup = (props: Props) => {
+    const {register, handleSubmit, formState:{errors}} = useForm<signUp>();
+
   return (
     <div className={`h-screen relative`}>
         <div className={`border border-solid border-slate-900 rounded-2xl bg-white absolute left-1/3 top-36 text-center`}>
@@ -16,15 +23,36 @@ const Signup = (props: Props) => {
             </div>
         </div>
         <div className="form">
-            <form action="">
+            <form action="" onSubmit={handleSubmit(onSubmit)}>
                 <div >
-                    <input className={`p-4  my-4 border-slate-900 border w-96 border-solid rounded`} type="text" placeholder='Name'  />
+                    <input className={`p-4  my-4 border-slate-900 border w-96 border-solid rounded`} type="text" placeholder='Name'
+                      {...register('name',{required:true, minLength:{value: 6, message: "Phải lớn hơn 6 ký tự"}})}/>
+                      {Object.keys(errors).length !== 0 && (
+                          <ul>
+                              {errors.name?.type == 'required' && (<li className='text-[red]'>Không được để trống</li>)}
+                              {errors.name?.message && <p className='text-[red]'>{errors.name.message}</p>}
+                          </ul>
+                      )}
                 </div>
                 <div >
-                    <input className={`p-4  my-4 border-slate-900 border w-96 border-solid rounded`} type="email" placeholder='Email Address'  />
+                    <input className={`p-4  my-4 border-slate-900 border w-96 border-solid rounded`} type="email" placeholder='Email Address' 
+                     {...register('email',{required:true, minLength:{value: 6, message: "Phải lớn hơn 6 ký tự"}})}/>
+                     {Object.keys(errors).length !== 0 && (
+                         <ul>
+                             {errors.email?.type == 'required' && (<li className='text-[red]'>Không được để trống</li>)}
+                             {errors.email?.message && <p className='text-[red]'>{errors.email.message}</p>}
+                         </ul>
+                     )}
                 </div>
                 <div >
-                    <input className={`p-4  my-4 border-slate-900 border w-96 border-solid rounded`} type="password" placeholder='Password'  />
+                    <input className={`p-4  my-4 border-slate-900 border w-96 border-solid rounded`} type="password" placeholder='Password'  
+                        {...register('password',{required:true, minLength:{value: 8, message: "Phải lớn hơn 8 ký tự"}})}/>
+                        {Object.keys(errors).length !== 0 && (
+                            <ul>
+                                {errors.password?.type == 'required' && (<li className='text-[red]'>Không được để trống</li>)}
+                                {errors.password?.message && <p className='text-[red]'>{errors.password.message}</p>}
+                            </ul>
+                        )}
                 </div>
                 <div className={`text-left pl-32 text-purple-600 my-2`}>
                     <a href="">Forgot Password</a>
