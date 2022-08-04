@@ -46,7 +46,7 @@ const Categories = (props: Props) => {
         </button>
       </div>
       <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-        <div className="border-4 border-dashed border-gray-200 rounded-lg h-96">
+        <div className="border-4 border-dashed border-gray-200 rounded-lg h-[100%]">
           <div className="max-w-6xl mx-auto py-5 px-4 sm:px-5 lg:px-7">
             <div>
               <h1 className='text-center text-[30px] font-bold'>Categories</h1>

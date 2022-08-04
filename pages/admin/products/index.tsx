@@ -21,7 +21,7 @@ const listproducts = (props: Props) => {
     return (
        <div>
          <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-            <div className="border-4 border-dashed border-gray-200 rounded-lg h-96">
+            <div className="border-4 border-dashed border-gray-200 rounded-lg h-[100%]">
                 <div className="max-w-6xl mx-auto py-5 px-4 sm:px-5 lg:px-7">
                     <h1 className='text-center text-[30px] font-bold'>List Products </h1>
                     <p className='ml-[50px] rounded-lg p-2 text-center text-white bg-orange-500  w-[100px] mb-5 hover hover:bg-red-500 font-bold'><Link  href={`/admin/products/add`}>ADD</Link></p>
