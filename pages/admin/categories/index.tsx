@@ -24,7 +24,7 @@ const Categories = (props: Props) => {
         <div className="max-w-6xl mx-auto py-5 px-4 sm:px-5 lg:px-7">
           <div>
             <h1 className='text-center text-[30px] font-bold'>Categories</h1>
-            <p className='rounded-lg p-2 text-center text-white bg-red-600  w-[100px] mb-5 hover hover:bg-orange-500 '><Link  href={`categories/add`}>Add</Link></p>
+            <p className='rounded-lg p-2 text-center text-white bg-orange-500  w-[100px] mb-5 hover hover:bg-red-500 font-bold'><Link  href={`/admin/categories/add`}>ADD</Link></p>
             <table className='w-full text-sm text-left text-gray-500 dark:text-gray-400 '>
               <tr className='bg-orange-500 h-[40px]'>
                 <td className='p-[5px] text-center font-bold text-white'>STT</td>

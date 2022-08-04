@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import React from 'react'
 import { useForm ,SubmitHandler} from 'react-hook-form'
 import adminlayout from '../../../components/Layout/adminlayout'
@@ -9,10 +10,14 @@ type Form = {
 }
 const addcategory = (props: Props) => {
     const {register,handleSubmit,formState:{errors}} = useForm<Form>()
+    const router = useRouter()
     const {data,error,creatct,mutate} = usercategories()
     const onSubmit : SubmitHandler<Form> = data =>{
         console.log(data)
-        mutate(creatct(data).then(()=>{console.log("thành công")}))
+        mutate(creatct(data).then(()=>{
+            router.push('/admin/categories')
+            console.log("thanh cong")
+        }))
     }
   return (
     <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
