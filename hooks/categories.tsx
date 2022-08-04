@@ -12,11 +12,7 @@ const usercategories = () =>{
 
     const creatct = async (item:CateType) =>{
         const {data : cate} = await addct(item)
-        mutate ([...data, cate])
-    }
-    const removehct = async (id:string) =>{
-         await removect(id)
-        mutate(data.filter(item => item._id !== id))
+        return [...data, cate]
     }
     const removehct = async (id:string) =>{
         const {data : catede} = await removect(id)

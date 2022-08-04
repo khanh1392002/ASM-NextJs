@@ -15,6 +15,7 @@ type Form = {
 const editcategory = ({category}: ProductProps) => {
     const {register,handleSubmit,formState:{errors},reset} = useForm<Form>()
     const [cateedit, setcateedit] = useState<CateType>()
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const router = useRouter()
     useEffect(()=>{
         const setitem =()=>{
@@ -26,7 +27,7 @@ const editcategory = ({category}: ProductProps) => {
     
     const onSubmit : SubmitHandler<Form> = data =>{
         console.log(data)
-        updatecate(data).then(()=> router.push())
+        updatecate(data).then(()=> router.push("/admin/categories"))
     }
   return (
     <div>
