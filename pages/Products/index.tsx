@@ -1,11 +1,16 @@
 import Link from 'next/link'
 import React, { useEffect } from 'react'
+import usercategories from '../../hooks/categories'
 import useProduct from '../../hooks/product'
 
 
 type Props = {}
 
 const ProductList = (props: Props) => {
+    const {data:cate} = usercategories();
+    // if (!cate) return <div>Loading....</div>
+
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const {data,error,mutate} = useProduct()
     if(!data) return <div>Loading....</div>
     if(error) return <div>Error !</div>
@@ -39,12 +44,14 @@ const ProductList = (props: Props) => {
                         <div className="cate">
                             <samp className="text-[#ff6c8d] text-[18px] font-semibold">Danh mục sản phẩm</samp>
                         </div>
-                        <ul className="block">
-                            <li className="cate hover hover:bg-[#ff6c8d]"><a href="#"></a>Skincare</li>
-                            <li className="cate hover hover:bg-[#ff6c8d]"><a href="#"></a>Lipstick</li>
-                            <li className="cate hover hover:bg-[#ff6c8d]"><a href="#"></a>Gloss</li>
-                            <li className="cate hover hover:bg-[#ff6c8d]"><a href="#"></a>Nail</li>
-                            <li className="cate hover hover:bg-[#ff6c8d]"><a href="#"></a>Vani Beauty</li>
+                        <ul className="block"> 
+                            {
+                                cate.map(item => (
+                                    // eslint-disable-next-line react/jsx-key
+                                    <li className="cate hover hover:bg-[#ff6c8d]"><Link href={`/categories/${item._id}`}>{item.name}</Link></li>
+                                ))
+                            }
+                            
                         </ul>
                     </div>
                     <div className="products-4">
