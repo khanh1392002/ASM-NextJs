@@ -98,7 +98,7 @@ const ProductList = (props: Props) => {
                                 alt=""/>
                         </div>
                         <div className="name product-title pt-[10px]">
-                            <Link href={`Products/${item._id}`}>
+                            <Link href={`/products/${item._id}`}>
                                 {item.name}
                             </Link>
                         </div>
