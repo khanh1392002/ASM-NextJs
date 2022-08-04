@@ -14,16 +14,16 @@ const useProduct = () =>{
         const {data : product} = await addproduct(item)
         return [...data, product]
     } 
-    const removephd = async (id: string) => {
+    const removehpd = async (id:string) =>{
         await removepd(id)
-        mutate(data.filter(item => item._id !== id))
-    }
+       mutate(data.filter(item => item._id !== id))
+   }
     return{
         data,
         error,
         mutate,
         creat,
-        removephd
+        removehpd
     }
 }
 export default useProduct
