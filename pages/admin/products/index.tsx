@@ -8,12 +8,13 @@ import useProduct from '../../../hooks/product'
 type Props = {}
 
 const listproducts = (props: Props) => {
-    const {data,error,mutate} = useProduct()
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const {data,error,mutate,removephd } = useProduct()
     const {removehct} = usercategories()
     const remove = (item:any) =>{
       const confirm = window.confirm(`Bạn thực sự muốn xóa: ${item.name}`)
       if(confirm){
-        mutate(removehct(`${item._id}`))
+        mutate(removephd(`${item._id}`))
       }
     }
     if(!data) return <div>Loading...</div>
