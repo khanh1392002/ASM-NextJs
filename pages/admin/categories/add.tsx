@@ -3,7 +3,8 @@ import React from 'react'
 import { useForm ,SubmitHandler} from 'react-hook-form'
 import adminlayout from '../../../components/Layout/adminlayout'
 import usercategories from '../../../hooks/categories'
-
+import toastr from "toastr"
+import 'toastr/build/toastr.min.css'
 type Props = {}
 type Form = {
     name:string
@@ -17,7 +18,7 @@ const addcategory = (props: Props) => {
         console.log(data)
         mutate(creatct(data).then(()=>{
             router.push('/admin/categories')
-            console.log("thanh cong")
+            toastr.success("Bạn đã thêm thành công")
         }))
     }
   return (

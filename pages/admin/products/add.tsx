@@ -6,7 +6,8 @@ import adminlayout from '../../../components/Layout/adminlayout'
 import usercategories from '../../../hooks/categories'
 import useProduct from '../../../hooks/product'
 import { CateType } from '../../../type/categories'
-
+import toastr from "toastr"
+import 'toastr/build/toastr.min.css'
 type Props = {}
 type Form = {
   name: string,
@@ -44,6 +45,7 @@ axios({
   data.image = res.data.url
   console.log(data.image)
   mutate(creat(data).then(()=> router.push('/admin/products')))
+  toastr.success("Bạn đã thêm thành công")
 })
   }
   return (

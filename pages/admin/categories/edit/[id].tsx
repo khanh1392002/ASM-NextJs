@@ -5,7 +5,8 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { getall, updatecate } from '../../../../api/categories'
 import adminlayout from '../../../../components/Layout/adminlayout'
 import { CateType } from '../../../../type/categories'
-
+import toastr from "toastr"
+import 'toastr/build/toastr.min.css'
 type ProductProps = {
     category:CateType
 }
@@ -28,6 +29,7 @@ const editcategory = ({category}: ProductProps) => {
     const onSubmit : SubmitHandler<Form> = data =>{
         console.log(data)
         updatecate(data).then(()=> router.push("/admin/categories"))
+        toastr.success("Bạn đã sửa thành công")
     }
   return (
     <div>
