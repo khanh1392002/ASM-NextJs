@@ -8,6 +8,7 @@ type Form = {
     name:string
 }
 const addcategory = (props: Props) => {
+    
     const {register,handleSubmit,formState:{errors}} = useForm<Form>()
     const {data,error,creatct,mutate} = usercategories()
     const onSubmit : SubmitHandler<Form> = data =>{
