@@ -1,6 +1,6 @@
 import { url } from "inspector";
 import useSWR from "swr";
-import { addproduct, list } from "../api/products";
+import { addproduct, list, removepd } from "../api/products";
 import { Iproduct } from "../type/products";
 
 
@@ -14,11 +14,16 @@ const useProduct = () =>{
         const {data : product} = await addproduct(item)
         return [...data, product]
     } 
+    const removehpd = async (id:string) =>{
+        await removepd(id)
+       mutate(data.filter(item => item._id !== id))
+   }
     return{
         data,
         error,
         mutate,
-        creat
+        creat,
+        removehpd
     }
 }
 export default useProduct
