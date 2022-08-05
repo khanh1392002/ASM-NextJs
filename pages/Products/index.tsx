@@ -2,6 +2,8 @@ import Link from 'next/link'
 import React, { useEffect } from 'react'
 import usercategories from '../../hooks/categories'
 import useProduct from '../../hooks/product'
+import { CateType } from '../../type/categories'
+import { Iproduct } from '../../type/products'
 
 
 type Props = {}
@@ -46,7 +48,7 @@ const ProductList = (props: Props) => {
                         </div>
                         <ul className="block"> 
                             {
-                                cate.map(item => (
+                                cate.map((item:CateType) => (
                                     // eslint-disable-next-line react/jsx-key
                                     <li className="cate hover hover:bg-[#ff6c8d]"><Link href={`/categories/${item._id}`}>{item.name}</Link></li>
                                 ))
@@ -96,7 +98,7 @@ const ProductList = (props: Props) => {
                 </div>
                 
                 <div className="product-mian">
-                {data.map(item=>(
+                {data.map((item:Iproduct)=>(
                         // eslint-disable-next-line react/jsx-key
                     <div className="product-small box shadow 0 h-fit hover:shadow-lg">
                         <div className="product-img">

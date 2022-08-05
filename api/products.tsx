@@ -11,3 +11,6 @@ export const removepd = (id:string)=>{
 export const addproduct = (product:Iproduct) =>{
     return instance.post(`/products`,product)
 }
+export const updatepd = (product:Iproduct) =>{
+    return instance.put(`/products/${product._id}`,product)
+}

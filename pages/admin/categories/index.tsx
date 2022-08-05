@@ -58,7 +58,7 @@ const Categories = (props: Props) => {
                   <td className='p-[5px] text-center font-bold text-white'>Edit</td>
                   <td className='p-[5px] text-center font-bold text-white'>Remove</td>
                 </tr>
-                {data.map((item, index) => (
+                {data.map((item:CateType, index:number) => (
                   <tr key={item._id}>
                     <td className='text-center'>{index + 1}</td>
                     <td className='text-center'>{item.name}</td>

@@ -20,7 +20,7 @@ const addproduct = (props: Props) => {
   const router = useRouter()
   const [category, setcategory] = useState<CateType[]>([])
   const { data, error, mutate } = usercategories()
-  const {creat} = useProduct()
+  const { creat } = useProduct()
   // if (!data) return <div>Loading...</div>
   // if (error) return <div>Errors</div>
 
@@ -30,23 +30,23 @@ const addproduct = (props: Props) => {
     console.log(data)
     console.log(data.image[0])
     const file = data.image[0]
-const formData = new FormData()
+    const formData = new FormData()
 
-formData.append('file', file)
-formData.append("upload_preset", "mi59v8ju")
+    formData.append('file', file)
+    formData.append("upload_preset", "mi59v8ju")
 
-axios({
-  url: "https://api.cloudinary.com/v1_1/dkrifqhuk/image/upload",
-  method: "POST",
-  headers: {
-    "Content-Type": "application/x-www-formendcoded",
-  }, data: formData,
-}).then((res) => {
-  data.image = res.data.url
-  console.log(data.image)
-  mutate(creat(data).then(()=> router.push('/admin/products')))
-  toastr.success("Bạn đã thêm thành công")
-})
+    axios({
+      url: "https://api.cloudinary.com/v1_1/dkrifqhuk/image/upload",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-formendcoded",
+      }, data: formData,
+    }).then((res) => {
+      data.image = res.data.url
+      console.log(data.image)
+      mutate(creat(data).then(() => router.push('/admin/products')))
+      toastr.success("Bạn đã thêm thành công")
+    })
   }
   return (
     <div>
@@ -55,7 +55,7 @@ axios({
           <div className="max-w-6xl mx-auto py-5 px-4 sm:px-5 lg:px-7">
             <form onSubmit={handleSubmit(onSubmit)} action="" className='w-[350px] m-auto border p-[30px]'>
               <select id="" {...register('category', { required: true })}>
-                {data?.map((item) => {
+                {data?.map((item: CateType) => {
                   return <option value={`${item._id}`}>
                     {item.name}
                   </option>
