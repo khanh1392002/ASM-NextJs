@@ -132,7 +132,7 @@ const adminlayout = ({children}: layoutProps) => {
      
     </div>
   </main>
-</div></div>
+        </div></div>
         {children}
 
     </div>
