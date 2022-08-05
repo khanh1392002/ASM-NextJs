@@ -27,7 +27,7 @@ const Header = (props: Props) => {
                         </div>
                         <div className={style.search_cart}>
                             
-                            <Link href="/card" className='text-[25px]'><FaCartArrowDown /></Link>
+                            <Link href="/card" className='text-[25px] cursor-pointer'><FaCartArrowDown /></Link>
                         </div>
                     </div>
                 </div>
@@ -35,7 +35,7 @@ const Header = (props: Props) => {
                     <ul className={style.list}>
                         <li className={style.list_item}><Link href="/">TRANG CHỦ</Link></li>
                         <li className={style.list_item}><Link href="">GIỚI THIỆU</Link></li>
-                        <li className={style.list_item}><Link href="/products">CỬA HÀNG</Link></li>
+                        <li className={style.list_item}><Link href="/Products">CỬA HÀNG</Link></li>
                         <li className={style.list_item}><Link href="">TIN TỨC</Link></li>
                         <li className={style.list_item}><Link href="">LIÊN HỆ</Link></li>
                     </ul>
