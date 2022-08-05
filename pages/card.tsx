@@ -3,24 +3,30 @@ import { Carttype } from '../type/cart'
 import NumberFormat from "react-number-format";
 import { FaBeer,FaCartArrowDown,FaTrashAlt } from 'react-icons/fa';
 // import '../styles/card.css'
+import toastr from "toastr"
+import 'toastr/build/toastr.min.css'
+import { useRouter } from 'next/router'
+
 type Props = {}
 
 const card = (props: Props) => {
   const [card,setcart] = useState<Carttype[]>([])
   const [total,settotal] = useState([]) 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const router = useRouter()
   
   useEffect(()=>{
     const item = JSON.parse(localStorage.getItem('cart')) || [] 
     setcart(item)
     settotal(item.map((ite:Carttype)=>(ite.price * ite.quanty)))
     console.log(item.map((ite:Carttype)=>(ite.price * ite.quanty)))
-
-   
     console.log('tong',total)
     console.log(item)
   },[])
   const remove = (id:number) =>{
     const confirm = window.confirm("Bạn có muốn xóa")
+    toastr.success("Xóa sản phẩm thành công")
+    router.push('/card')
     
    
     if(confirm){
@@ -36,7 +42,8 @@ const card = (props: Props) => {
         <table className="table-auto w-[800px]">
             <thead>
               <tr >
-                <th>Sản phẩm</th>
+                <th className='text-center'>Sản phẩm</th>
+                <th>Iamge</th>
                 <th>GIÁ</th>
                 <th className="text-center">SỐ LƯỢNG</th>
                 <th>Tổng</th>
@@ -45,10 +52,13 @@ const card = (props: Props) => {
             </thead>
             <tbody>
               {card.map((item:Carttype)=>(
+                // eslint-disable-next-line react/jsx-key
                 <tr className="text-center">
-                <td className="flex ">
-                    <img className="w-[76px] h-[76px]"  src={`${item.image}`} alt="" />
+                <td>
                     <p className="name p-6">{item.name}</p>
+                </td>
+                <td>
+                <img className="w-[144pxpx] h-[76px] m-auto"  src={`${item.image}`} alt="" />
                 </td>
                 <td className="text-[#ff6c8d]">
                 <NumberFormat
@@ -58,13 +68,6 @@ const card = (props: Props) => {
                       thousandSeparator={true}
                     /> ₫
                   </td>
-                {/* <td>
-                    <div className="buttons_added">
-                        <input className="hiep" onClick="var result = document.getElementById('quantity'); var qty = result.value; if( !isNaN(qty) &amp; qty > 1 ) result.value--;return false;" type='button' value='-' />
-                    <input id='quantity' min='1' name='quantity' type='text' value='1' />
-                    <input className="hiep" onClick="var result = document.getElementById('quantity'); var qty = result.value; if( !isNaN(qty)) result.value++;return false;" type='button' value='+' />
-                    </div>
-                </td> */}
                 <td className="text-[#ff6c8d]">{item.quanty}</td>
                 <td className="text-[#ff6c8d]">
                 <NumberFormat
@@ -96,14 +99,14 @@ const card = (props: Props) => {
               <div >
                 <p className="text-right">Giao hàng miễn phí</p>
             </div>
-              <div className="hi1 pd">
+              <div className="hi1 pd pt-2 pb-2">
                 <p>Giao hàng</p>
                 <p>Đây chỉ là ước tính. Giá sẽ cập nhật trong quá trình thanh toán</p>
               </div>
               <div className="giaohang text-right br">
                 <a href="">Tính phí giao hàng</a>
               </div>
-              <div className="br hi1 pd flex justify-between">
+              <div className="br hi1 pd flex justify-between pt-2 pb-2">
                 <p>Tổng</p>
                 <p className="text-[#ff6c8d]">550,000 ₫</p>
               </div>

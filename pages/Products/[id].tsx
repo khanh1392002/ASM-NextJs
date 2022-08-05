@@ -58,7 +58,7 @@ const Detailproduct = ({ product }: ProductProps) => {
                             value={product.price}
                             displayType="text"
                             thousandSeparator={true}
-                        /> ₫</p>
+                        />₫</p>
                     <p className="mt-[30px]">{product.description}</p>
                     <div className='mt-[50px]'>
                         <button onClick={() => { setcount(count - 1) }} className="py-[5px] w-[25px] border bg-gray-200">-</button><input type="text" min={0} value={`${count}`} className='w-[40px] border text-center py-[5px]' /><button onClick={() => { setcount(count + 1) }} className="py-[5px] w-[25px] border bg-gray-200">+</button>
@@ -67,7 +67,7 @@ const Detailproduct = ({ product }: ProductProps) => {
                 </div>
             </div>
             <div className="max-w-6xl m-auto mt-[100px]">
-                <h1 className="font-bold text-[30px]">{product.name} là gì?</h1>
+                <h1 className="font-bold text-[30px]">{product.name}</h1>
                 <p className="text-[15px]">{product.description}</p>
             </div>
         </div>
