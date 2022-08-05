@@ -47,8 +47,8 @@ const listproducts = (props: Props) => {
             <div className="border-4 border-dashed border-gray-200 rounded-lg h-[100%]">
                 <div className="max-w-6xl mx-auto py-5 px-4 sm:px-5 lg:px-7">
                     <h1 className='text-center text-[30px] font-bold'>List Products </h1>
-                    <p className='ml-[50px] rounded-lg p-2 text-center text-white bg-orange-500  w-[100px] mb-5 hover hover:bg-red-500 font-bold'><Link  href={`/admin/products/add`}>ADD</Link></p>
-                    <table className='w-[1000px] m-auto mt-[30px]'>
+                    <p className='rounded-lg p-2 text-center text-white bg-red-600  w-[100px] mb-5 hover hover:bg-orange-500'><Link  href={`/admin/products/add`}>ADD</Link></p>
+                    <table className='w-full text-sm text-left text-gray-500 dark:text-gray-400'>
               <tr className='bg-orange-500 h-[40px]'>
                 <td className='p-[10px] text-center font-bold text-white'>STT</td>
                 <td className='p-[15px] text-center font-bold text-white'>Name</td>
