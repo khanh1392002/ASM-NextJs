@@ -1,14 +1,24 @@
+import { useRouter } from 'next/router'
 import React from 'react'
 import {SubmitHandler, useForm} from 'react-hook-form'
+import { mutate } from 'swr'
+import { signup } from '../api/user'
 type Props = {}
-type signUp = {
+type form = {
     name: string,
     email: string,
     password: string
 }
-const onSubmit = () => alert('ok');
+// const onSubmit = () => alert('ok');
 const Signup = (props: Props) => {
-    const {register, handleSubmit, formState:{errors}} = useForm<signUp>();
+    const {register, handleSubmit, formState:{errors}} = useForm<form>();
+    const router = useRouter();
+    const onSubmit : SubmitHandler<form> = data => {
+        mutate(signup(data))
+        alert('Đăng ký thành công')
+        router.push('/signin')
+        
+    }
 
   return (
     <div className={`h-screen relative`}>
@@ -19,7 +29,7 @@ const Signup = (props: Props) => {
                 <a href="/signin" className={`  px-16 no-underline `} >Login</a>
             </div>
             <div className={` border-slate-900 border  py-3 border-solid rounded  bg-fuchsia-600`}>
-                <a href=""  className={` px-16 no-underline text-white font-bold` }>Signup</a>
+                <a href="/signup"  className={` px-16 no-underline text-white font-bold` }>Signup</a>
             </div>
         </div>
         <div className="form">

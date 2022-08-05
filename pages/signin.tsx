@@ -1,14 +1,25 @@
+import { useRouter } from 'next/router'
 import React from 'react'
 import {SubmitHandler, useForm} from 'react-hook-form'
+import userpertion from '../hooks/user'
 type Props = {}
-type signIn = {
+type form = {
     email: string,
     password: string
 }
 const onSubmit = () => alert('ok');
 const Signin = (props: Props) => {
-    const {register, handleSubmit, formState:{errors}} = useForm<signIn>()
-    // const onSubmit: SubmitHandler<signIn> = ();
+    const {register, handleSubmit, formState:{errors}} = useForm<form>()
+    const {signinuser} = userpertion()
+    const router = useRouter();
+    const onSubmit: SubmitHandler<form> = data => {
+        signinuser(data).then(() => {
+            localStorage.setItem('user', JSON.stringify(data))
+            router.push('/')
+        }
+            )
+        
+    };
     
   return (
     <div className={` h-screen relative`}>
@@ -16,10 +27,10 @@ const Signin = (props: Props) => {
         <h1 className={`text-6xl py-8 px-8 `}>Login Form</h1>
         <div className={`auth flex justify-center pb-8 px-32`}>
             <div className={` border-slate-900 border py-3  border-solid rounded  bg-fuchsia-600`}>
-                <a href="" className={` text-white px-16 no-underline font-bold`} >Login</a>
+                <a href="/signin" className={` text-white px-16 no-underline font-bold`} >Login</a>
             </div>
             <div className={` border-slate-900 border  py-3 border-solid rounded `}>
-                <a href=""  className={` px-16 no-underline`}>Signup</a>
+                <a href="/signup"  className={` px-16 no-underline`}>Signup</a>
             </div>
         </div>
         <div className="form">
