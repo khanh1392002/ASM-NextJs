@@ -1,22 +1,29 @@
+import { useRouter } from 'next/router'
 import React from 'react'
 import { useForm ,SubmitHandler} from 'react-hook-form'
 import adminlayout from '../../../components/Layout/adminlayout'
 import usercategories from '../../../hooks/categories'
-
+import toastr from "toastr"
+import 'toastr/build/toastr.min.css'
 type Props = {}
 type Form = {
     name:string
 }
 const addcategory = (props: Props) => {
+    
     const {register,handleSubmit,formState:{errors}} = useForm<Form>()
+    const router = useRouter()
     const {data,error,creatct,mutate} = usercategories()
     const onSubmit : SubmitHandler<Form> = data =>{
         console.log(data)
-        mutate(creatct(data).then(()=>{console.log("thành công")}))
+        mutate(creatct(data).then(()=>{
+            router.push('/admin/categories')
+            toastr.success("Bạn đã thêm thành công")
+        }))
     }
   return (
     <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-        <div className="border-4 border-dashed border-gray-200 rounded-lg h-96">
+        <div className="border-4 border-dashed border-gray-200 rounded-lg h-[100%]">
             <div className="max-w-6xl mx-auto py-5 px-4 sm:px-5 lg:px-7">
             <h1 className='text-center text-[30px] font-bold'>Add Category</h1>
             <form onSubmit={handleSubmit(onSubmit)} action="" className='w-[350px] m-auto border p-[30px]'>

@@ -1,5 +1,5 @@
 import useSWR from "swr"
-import { addct, getall } from "../api/categories"
+import { addct, getall, removect } from "../api/categories"
 import { CateType } from "../type/categories"
 
 const usercategories = () =>{
@@ -14,11 +14,16 @@ const usercategories = () =>{
         const {data : cate} = await addct(item)
         return [...data, cate]
     }
+    const removehct = async (id:string) =>{
+        const {data : catede} = await removect(id)
+        mutate (data.filter(item => item._id !== id))
+    }
     return{
         data,
         error,
         mutate,
-        creatct
+        creatct,
+        removehct
     }
 }
 

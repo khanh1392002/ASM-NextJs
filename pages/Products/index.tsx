@@ -1,11 +1,18 @@
 import Link from 'next/link'
 import React, { useEffect } from 'react'
+import usercategories from '../../hooks/categories'
 import useProduct from '../../hooks/product'
+import { CateType } from '../../type/categories'
+import { Iproduct } from '../../type/products'
 
 
 type Props = {}
 
 const ProductList = (props: Props) => {
+    const {data:cate} = usercategories();
+    // if (!cate) return <div>Loading....</div>
+
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const {data,error,mutate} = useProduct()
     if(!data) return <div>Loading....</div>
     if(error) return <div>Error !</div>
@@ -39,12 +46,14 @@ const ProductList = (props: Props) => {
                         <div className="cate">
                             <samp className="text-[#ff6c8d] text-[18px] font-semibold">Danh mục sản phẩm</samp>
                         </div>
-                        <ul className="block">
-                            <li className="cate hover hover:bg-[#ff6c8d]"><a href="#"></a>Skincare</li>
-                            <li className="cate hover hover:bg-[#ff6c8d]"><a href="#"></a>Lipstick</li>
-                            <li className="cate hover hover:bg-[#ff6c8d]"><a href="#"></a>Gloss</li>
-                            <li className="cate hover hover:bg-[#ff6c8d]"><a href="#"></a>Nail</li>
-                            <li className="cate hover hover:bg-[#ff6c8d]"><a href="#"></a>Vani Beauty</li>
+                        <ul className="block"> 
+                            {
+                                cate.map((item:CateType) => (
+                                    // eslint-disable-next-line react/jsx-key
+                                    <li className="cate hover hover:bg-[#ff6c8d]"><Link href={`/categories/${item._id}`}>{item.name}</Link></li>
+                                ))
+                            }
+                            
                         </ul>
                     </div>
                     <div className="products-4">
@@ -89,7 +98,7 @@ const ProductList = (props: Props) => {
                 </div>
                 
                 <div className="product-mian">
-                {data.map(item=>(
+                {data.map((item:Iproduct)=>(
                         // eslint-disable-next-line react/jsx-key
                     <div className="product-small box shadow 0 h-fit hover:shadow-lg">
                         <div className="product-img">
@@ -113,7 +122,6 @@ const ProductList = (props: Props) => {
         </div>
     </main>
     </div>
-
   )
 }
 

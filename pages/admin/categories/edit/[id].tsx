@@ -1,10 +1,12 @@
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next'
+import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { getall, updatecate } from '../../../../api/categories'
 import adminlayout from '../../../../components/Layout/adminlayout'
 import { CateType } from '../../../../type/categories'
-
+import toastr from "toastr"
+import 'toastr/build/toastr.min.css'
 type ProductProps = {
     category:CateType
 }
@@ -14,6 +16,8 @@ type Form = {
 const editcategory = ({category}: ProductProps) => {
     const {register,handleSubmit,formState:{errors},reset} = useForm<Form>()
     const [cateedit, setcateedit] = useState<CateType>()
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const router = useRouter()
     useEffect(()=>{
         const setitem =()=>{
             setcateedit(category)
@@ -24,7 +28,8 @@ const editcategory = ({category}: ProductProps) => {
     
     const onSubmit : SubmitHandler<Form> = data =>{
         console.log(data)
-        updatecate(data).then(()=> console.log('edit thành công'))
+        updatecate(data).then(()=> router.push("/admin/categories"))
+        toastr.success("Bạn đã sửa thành công")
     }
   return (
     <div>
