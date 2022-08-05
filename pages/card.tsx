@@ -19,6 +19,15 @@ const card = (props: Props) => {
     console.log('tong',total)
     console.log(item)
   },[])
+  const remove = (id:number) =>{
+    const confirm = window.confirm("Bạn có muốn xóa")
+    
+   
+    if(confirm){
+        let temp = card.filter(item => item._id !== id) 
+        localStorage.setItem('cart', JSON.stringify(temp)) 
+    }
+}
   return (
     <div>
            <main>
@@ -66,7 +75,7 @@ const card = (props: Props) => {
                     /> ₫
                   </td>
                 
-                <td className="font-bold"><button><FaTrashAlt/></button></td>
+                <td className="font-bold"><button onClick={()=>{remove(item._id)}}><FaTrashAlt/></button></td>
               </tr>   
               ))}
               
