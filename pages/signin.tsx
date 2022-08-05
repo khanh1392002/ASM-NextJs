@@ -9,7 +9,7 @@ type form = {
     email: string,
     password: string
 }
-const onSubmit = () => alert('ok');
+// const onSubmit = () => alert('ok');
 const Signin = (props: Props) => {
     const {register, handleSubmit, formState:{errors}} = useForm<form>()
     const {signinuser} = userpertion()
