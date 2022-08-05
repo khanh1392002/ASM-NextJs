@@ -31,24 +31,39 @@
 .contact .contact_item {
     display: flex;
     font-size: 15px;
-    line-height: 26x
+    line-height: 26px;
+    padding: 10px 0px;
 }
 
 .contact .contact_item>i {
     padding-right: 20px;
 }
-
+.contact h3,
+.internet h3,
+.form h3 {
+   color: white;
+   font-size: 20px;
+   margin-bottom: 20px;
+}
 .internet p {
     font-size: 15px;
     margin-bottom: 10px;
 }
 
-.internet .internet_icon i {
+.internet .internet_icon {
+    display: flex;
     font-size: 20px;
-    padding: 12px;
+    padding: 12px 0px;
     color: #fff;
     margin: 0px 3px;
-    background: black;
+}
+.internet .internet_icon li{
+    padding: 0px 10px;
+    list-style: none;
+    font-size: 40px;
+}
+.internet .internet_icon::after{
+    padding-left: none;
 }
 
 .form p {

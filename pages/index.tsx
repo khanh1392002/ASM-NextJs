@@ -65,7 +65,7 @@ const Home: NextPage = () => {
             {data.map((item:Iproduct)=>(
               // eslint-disable-next-line react/jsx-key
               <div className={style.product_item}>
-                <img    src={`${item.image}`} alt="" />
+                <img  src={`${item.image}`} alt="" />
                 <div className={style.product_title}>
                 <Link href={`/products/${item._id}`}>
                                 {item.name}
