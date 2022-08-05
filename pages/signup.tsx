@@ -3,6 +3,8 @@ import React from 'react'
 import {SubmitHandler, useForm} from 'react-hook-form'
 import { mutate } from 'swr'
 import { signup } from '../api/user'
+import toastr from "toastr"
+import 'toastr/build/toastr.min.css'
 type Props = {}
 type form = {
     name: string,
@@ -15,9 +17,8 @@ const Signup = (props: Props) => {
     const router = useRouter();
     const onSubmit : SubmitHandler<form> = data => {
         mutate(signup(data))
-        alert('Đăng ký thành công')
         router.push('/signin')
-        
+        toastr.success("Đăng ký thành công")
     }
 
   return (

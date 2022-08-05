@@ -2,6 +2,8 @@ import { useRouter } from 'next/router'
 import React from 'react'
 import {SubmitHandler, useForm} from 'react-hook-form'
 import userpertion from '../hooks/user'
+import toastr from "toastr"
+import 'toastr/build/toastr.min.css'
 type Props = {}
 type form = {
     email: string,
@@ -16,6 +18,7 @@ const Signin = (props: Props) => {
         signinuser(data).then(() => {
             localStorage.setItem('user', JSON.stringify(data))
             router.push('/')
+            toastr.success("Đăng nhập thành công ")
         }
             )
         
