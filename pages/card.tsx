@@ -1,29 +1,54 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { Carttype } from '../type/cart'
+import NumberFormat from "react-number-format";
+import { FaBeer,FaCartArrowDown,FaTrashAlt } from 'react-icons/fa';
 // import '../styles/card.css'
 type Props = {}
 
 const card = (props: Props) => {
+  const [card,setcart] = useState<Carttype[]>([])
+  const [total,settotal] = useState([]) 
+  
+  useEffect(()=>{
+    const item = JSON.parse(localStorage.getItem('cart')) || [] 
+    setcart(item)
+    settotal(item.map((ite:Carttype)=>(ite.price * ite.quanty)))
+    console.log(item.map((ite:Carttype)=>(ite.price * ite.quanty)))
+
+   
+    console.log('tong',total)
+    console.log(item)
+  },[])
   return (
     <div>
            <main>
     <div className="content mx-auto w-[1270px] pt-20 pb-20 hi flex justify-between">
         <div className="cart">
-        <table className="table-auto">
+        <table className="table-auto w-[800px]">
             <thead>
               <tr >
                 <th>Sản phẩm</th>
                 <th>GIÁ</th>
                 <th className="text-center">SỐ LƯỢNG</th>
                 <th>Tổng</th>
+                <th>Remove</th>
               </tr>
             </thead>
             <tbody>
-              <tr className="text-center">
+              {card.map((item:Carttype)=>(
+                <tr className="text-center">
                 <td className="flex ">
-                    <img className="w-[76px] h-[76px]"  src="https://res.cloudinary.com/fptpolytechnic/image/upload/v1658384856/samples/41-450x585-1_scfdfj.jpg" alt="" />
-                    <p className="name p-6">Armani black suit</p>
+                    <img className="w-[76px] h-[76px]"  src={`${item.image}`} alt="" />
+                    <p className="name p-6">{item.name}</p>
                 </td>
-                <td className="text-[#ff6c8d]">550,000 ₫</td>
+                <td className="text-[#ff6c8d]">
+                <NumberFormat
+                      thousandsGroupStyle='thousand'
+                      value={item.price}
+                      displayType="text"
+                      thousandSeparator={true}
+                    /> ₫
+                  </td>
                 {/* <td>
                     <div className="buttons_added">
                         <input className="hiep" onClick="var result = document.getElementById('quantity'); var qty = result.value; if( !isNaN(qty) &amp; qty > 1 ) result.value--;return false;" type='button' value='-' />
@@ -31,13 +56,25 @@ const card = (props: Props) => {
                     <input className="hiep" onClick="var result = document.getElementById('quantity'); var qty = result.value; if( !isNaN(qty)) result.value++;return false;" type='button' value='+' />
                     </div>
                 </td> */}
-                <td className="text-[#ff6c8d]">550,000 ₫</td>
+                <td className="text-[#ff6c8d]">{item.quanty}</td>
+                <td className="text-[#ff6c8d]">
+                <NumberFormat
+                      thousandsGroupStyle='thousand'
+                      value={item.quanty* item.price}
+                      displayType="text"
+                      thousandSeparator={true}
+                    /> ₫
+                  </td>
+                
+                <td className="font-bold"><button><FaTrashAlt/></button></td>
               </tr>   
+              ))}
+              
             </tbody>
           </table>
           <div className="add-card flex justify-between">
-            <a  href="">Tiếp tục xem giỏ hàng</a>
-          <button className="btn-card">Cập nhật giỏ hàng</button>
+            
+          {/* <button className="btn-card">Cập nhật giỏ hàng</button> */}
         </div>
         </div>
         <div className="rol"></div>

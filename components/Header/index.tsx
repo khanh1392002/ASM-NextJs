@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import React, { Children, useEffect } from 'react'
 import style from './header.module.css'
+import { FaBeer,FaCartArrowDown,FaTrashAlt } from 'react-icons/fa';
 type Props = {}
 
 
@@ -25,8 +26,8 @@ const Header = (props: Props) => {
                             <img src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/logo-mona.png" />
                         </div>
                         <div className={style.search_cart}>
-                            <Link href=""><i className="fa-solid fa-magnifying-glass" /></Link>
-                            <Link href=""><i className="fa-solid fa-cart-shopping" /></Link>
+                            
+                            <Link href="/card" className='text-[25px]'><FaCartArrowDown /></Link>
                         </div>
                     </div>
                 </div>
