@@ -1,5 +1,6 @@
 import React from 'react'
 import style from './footer.module.css'
+import { FaPhoneAlt, FaMailBulk, FaLocationArrow, FaFacebookSquare, FaLinkedin, FaYoutube, FaTwitterSquare, FaPinterestP } from "react-icons/fa";
 type Props = {}
 
 const Footer = (props: Props) => {
@@ -10,16 +11,16 @@ const Footer = (props: Props) => {
                     <div className={style.contact}>
                         <h3>LIÊN HỆ</h3>
                         <div className={style.contact_item}>
-                            <i className="fa-solid fa-location-dot" />
-                            <p>319 C16 Lý Thường Kiệt, Phường 15, Quận 11, Tp.HCM</p>
+                            <FaLocationArrow />
+                            <p className='pl-[10px]'>319 C16 Lý Thường Kiệt, Phường 15, Quận 11, Tp.HCM</p>
                         </div>
                         <div className={style.contact_item}>
-                            <i className="fa-solid fa-phone" />
-                            <p>076 922 0162</p>
+                            <FaPhoneAlt />
+                            <p className='pl-[10px]'>076 922 0162</p>
                         </div>
                         <div className={style.contact_item}>
-                            <i className="fa-solid fa-message" />
-                            <p>demonhunterg@gmail.com
+                            <FaMailBulk />
+                            <p className='pl-[10px]'>demonhunterg@gmail.com
                                 mon@mona.media</p>
                         </div>
                     </div>
@@ -27,11 +28,11 @@ const Footer = (props: Props) => {
                         <h3>MẠNG XÃ HỘI</h3>
                         <p>Đăng ký để nhận được được thông tin ưu đãi mới nhất từ chúng tôi.</p>
                         <div className={style.internet_icon}>
-                            <i className="fa-brands fa-facebook-square" />
-                            <i className="fa-brands fa-facebook-square" />
-                            <i className="fa-brands fa-facebook-square" />
-                            <i className="fa-brands fa-facebook-square" />
-                            <i className="fa-brands fa-facebook-square" />
+                            <li><FaFacebookSquare /></li>
+                            <li><FaLinkedin /></li>
+                            <li><FaYoutube /></li>
+                            <li><FaTwitterSquare /></li>
+                            <li><FaPinterestP /></li>
                         </div>
                     </div>
                     <div className={style.form}>
