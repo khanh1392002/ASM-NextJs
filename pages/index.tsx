@@ -2,10 +2,20 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import usercategories from '../hooks/categories'
+import useProduct from '../hooks/product'
 import style from '../styles/Home.module.css'
+import { Iproduct } from '../type/products'
 
 
 const Home: NextPage = () => {
+  const {data:cate} = usercategories();
+  // if (!cate) return <div>Loading....</div>
+
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const {data,error,mutate} = useProduct()
+  if(!data) return <div>Loading....</div>
+  if(error) return <div>Error !</div>
   return (
     <div>
       <div className={style.banner}>
@@ -52,63 +62,19 @@ const Home: NextPage = () => {
               <li><Link href="">Nail</Link></li>
             </ul>
             <div className={style.product_list}>
-
+            {data.map((item:Iproduct)=>(
+              // eslint-disable-next-line react/jsx-key
               <div className={style.product_item}>
-                <img src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/14-300x300.jpg" alt="" />
+                <img    src={`${item.image}`} alt="" />
                 <div className={style.product_title}>
-                  <p>Sem qwase eiusmod default</p>
-                  <p>250,000đ</p>
+                <Link href={`/products/${item._id}`}>
+                                {item.name}
+                            </Link>
+                  <p className="price">{item.price}</p>
                 </div>
               </div>
-              <div className={style.product_item}>
-                <img src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/14-300x300.jpg" alt="" />
-                <div className={style.product_title}>
-                  <p>Sem qwase eiusmod default</p>
-                  <p>250,000đ</p>
-                </div>
-              </div>
-              <div className={style.product_item}>
-                <img src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/14-300x300.jpg" alt="" />
-                <div className={style.product_title}>
-                  <p>Sem qwase eiusmod default</p>
-                  <p>250,000đ</p>
-                </div>
-              </div>
-              <div className={style.product_item}>
-                <img src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/14-300x300.jpg" alt="" />
-                <div className={style.product_title}>
-                  <p>Sem qwase eiusmod default</p>
-                  <p>250,000đ</p>
-                </div>
-              </div>
-              <div className={style.product_item}>
-                <img src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/14-300x300.jpg" alt="" />
-                <div className={style.product_title}>
-                  <p>Sem qwase eiusmod default</p>
-                  <p>250,000đ</p>
-                </div>
-              </div>
-              <div className={style.product_item}>
-                <img src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/14-300x300.jpg" alt="" />
-                <div className={style.product_title}>
-                  <p>Sem qwase eiusmod default</p>
-                  <p>250,000đ</p>
-                </div>
-              </div>
-              <div className={style.product_item}>
-                <img src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/14-300x300.jpg" alt="" />
-                <div className={style.product_title}>
-                  <p>Sem qwase eiusmod default</p>
-                  <p>250,000đ</p>
-                </div>
-              </div>
-              <div className={style.product_item}>
-                <img src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/14-300x300.jpg" alt="" />
-                <div className={style.product_title}>
-                  <p>Sem qwase eiusmod default</p>
-                  <p>250,000đ</p>
-                </div>
-              </div>
+       
+              ))}
             </div>
           </div>
         </div>
@@ -196,21 +162,21 @@ const Home: NextPage = () => {
           <h3>KHÁCH HÀNG NÓI GÌ</h3>
           <div className={style.client_list}>
             <div className={style.client_box}>
-              <img src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/team-2-150x150.jpg" alt="" />
+              <img className='m-auto' src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/team-2-150x150.jpg" alt="" />
               <div className={style.client_text}>
                 <p>Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ cho in ấn</p>
                 <span><span>Mark Jance</span> / Facebook</span>
               </div>
             </div>
             <div className={style.client_box}>
-              <img src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/team-2-150x150.jpg" alt="" />
+              <img className='m-auto' src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/team-2-150x150.jpg" alt="" />
               <div className={style.client_text}>
                 <p>Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ cho in ấn</p>
                 <span><span>Mark Jance</span> / Facebook</span>
               </div>
             </div>
             <div className={style.client_box}>
-              <img src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/team-2-150x150.jpg" alt="" />
+              <img className='m-auto' src="http://mauweb.monamedia.net/vanibeauty/wp-content/uploads/2019/05/team-2-150x150.jpg" alt="" />
               <div className={style.client_text}>
                 <p>Lorem Ipsum chỉ đơn giản là một đoạn văn bản giả, được dùng vào việc trình bày và dàn trang phục vụ cho in ấn</p>
                 <span><span>Mark Jance</span> / Facebook</span>
