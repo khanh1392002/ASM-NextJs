@@ -21,8 +21,8 @@ const addproduct = (props: Props) => {
   const [category, setcategory] = useState<CateType[]>([])
   const { data, error, mutate } = usercategories()
   const { creat } = useProduct()
-  // if (!data) return <div>Loading...</div>
-  // if (error) return <div>Errors</div>
+  if (!data) return <div>Loading...</div>
+  if (error) return <div>Errors</div>
 
   const { register, handleSubmit, formState: { errors } } = useForm<Form>()
   const onSubmit: SubmitHandler<Form> = data => {

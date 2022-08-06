@@ -1,8 +1,10 @@
 import { GetServerSideProps, GetServerSidePropsContext, GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
+import NumberFormat from 'react-number-format';
 import usercategories from '../../hooks/categories'
 import useProduct from '../../hooks/product'
+import { CateType } from '../../type/categories';
 import { Iproduct } from '../../type/products';
 
 
@@ -50,7 +52,7 @@ const CateProduct = ({product}: ProductProps) => {
                                 </div>
                                 <ul className="block">
                                     {
-                                        cate.map(item => (
+                                        cate.map((item:CateType) => (
                                             // eslint-disable-next-line react/jsx-key
                                             <li className="cate hover hover:bg-[#ff6c8d]"><Link href={`/categories/${item._id}`}>{item.name}</Link></li>
                                         ))
@@ -100,7 +102,7 @@ const CateProduct = ({product}: ProductProps) => {
                         </div>
 
                         <div className="product-mian">
-                            {product.products.map(item => (
+                            {product.products.map((item:Iproduct) => (
                                 // eslint-disable-next-line react/jsx-key
                                 <div className="product-small box shadow 0 h-fit hover:shadow-lg">
                                     <div className="product-img">
@@ -114,7 +116,14 @@ const CateProduct = ({product}: ProductProps) => {
                                         </Link>
                                     </div>
                                     <div className="price-wrapper pb-[10px]">
-                                        <p className="price">{item.price}</p>
+                                        <p className="price">
+                                        <NumberFormat
+                                                thousandsGroupStyle='thousand'
+                                                value={item.price}
+                                                displayType="text"
+                                                thousandSeparator={true}
+                                            /> ₫
+                                        </p>
                                     </div>
                                 </div>
                             ))}

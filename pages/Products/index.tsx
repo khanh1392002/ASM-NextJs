@@ -101,7 +101,8 @@ const ProductList = (props: Props) => {
                         <div className="product-mian">
                             {data.map((item: Iproduct) => (
                                 // eslint-disable-next-line react/jsx-key
-                                <div className="product-small box shadow 0 h-fit hover:shadow-lg">
+                               <Link href={`products/${item._id}`}>
+                                 <div className="product-small box shadow 0 h-fit hover:shadow-lg">
                                     <div className="product-img">
                                         <img className="w-[100%] h-[208px]"
                                             src={`${item.image}`}
@@ -122,6 +123,7 @@ const ProductList = (props: Props) => {
                                             /> ₫</p>
                                     </div>
                                 </div>
+                               </Link>
                             ))}
                         </div>
 

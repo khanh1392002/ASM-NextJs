@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import NumberFormat from 'react-number-format'
 import usercategories from '../hooks/categories'
 import useProduct from '../hooks/product'
 import style from '../styles/Home.module.css'
@@ -70,7 +71,14 @@ const Home: NextPage = () => {
                 <Link href={`/products/${item._id}`}>
                                 {item.name}
                             </Link>
-                  <p className="price">{item.price}</p>
+                  <p className="price">
+                    <NumberFormat
+                      thousandsGroupStyle='thousand'
+                      value={item.price}
+                      displayType='text'
+                      thousandSeparator={true}
+                    /> ₫
+                  </p> 
                 </div>
               </div>
        
