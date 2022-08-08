@@ -39,6 +39,7 @@ const Header = (props: Props) => {
                                     setstatus(false)
                                     localStorage.removeItem('user')
                                 }} ><FaPowerOff /></button>
+                                <p>Chào {user.item.user.name}</p>
                             
                             </div>
 
