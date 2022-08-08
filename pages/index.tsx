@@ -9,13 +9,14 @@ import style from '../styles/Home.module.css'
 import { Iproduct } from '../type/products'
 
 
+
 const Home: NextPage = () => {
   const {data:cate} = usercategories();
   // if (!cate) return <div>Loading....</div>
 
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const {data,error,mutate} = useProduct()
-  if(!data) return <div>Loading....</div>
+  if (!data) return <div className = {style.load_man} ></div>
   if(error) return <div>Error !</div>
   return (
     <div>

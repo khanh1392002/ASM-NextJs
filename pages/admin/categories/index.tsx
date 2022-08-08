@@ -5,6 +5,7 @@ import adminlayout from '../../../components/Layout/adminlayout'
 import usercategories from '../../../hooks/categories'
 import useProduct from '../../../hooks/product'
 import { CateType } from '../../../type/categories'
+import style from '../../../styles/Home.module.css'
 
 type Props = {}
 
@@ -26,7 +27,7 @@ const Categories = (props: Props) => {
     }
 
   }
-  if (!data) return <div>Loading...</div>
+  if (!data) return <div className={style.load_man}></div>
   if (error) return <div>Errors</div>
 
   return (
