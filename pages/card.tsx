@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useEffect, useState } from 'react'
 import { Carttype } from '../type/cart'
 import NumberFormat from "react-number-format";
@@ -11,10 +12,8 @@ type Props = {}
 
 const card = (props: Props) => {
   const [card,setcart] = useState<Carttype[]>([])
-  const [total,settotal] = useState([]) 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const router = useRouter()
-  
+  const [total,settotal] = useState([]) 
   useEffect(()=>{
     const item = JSON.parse(localStorage.getItem('cart')) || [] 
     setcart(item)
@@ -27,8 +26,6 @@ const card = (props: Props) => {
     const confirm = window.confirm("Bạn có muốn xóa")
     toastr.success("Xóa sản phẩm thành công")
     router.push('/card')
-    
-   
     if(confirm){
         let temp = card.filter(item => item._id !== id) 
         localStorage.setItem('cart', JSON.stringify(temp)) 
@@ -39,10 +36,10 @@ const card = (props: Props) => {
            <main>
     <div className="content mx-auto w-[1270px] pt-20 pb-20 hi flex justify-between">
         <div className="cart">
-        <table className="table-auto w-[800px]">
-            <thead>
+        <table className="table-auto w-[700px] border-b-2 border-bg-[##ececec] pt-2">
+            <thead className='border-b-4 border-bg-[##ececec]'>
               <tr >
-                <th className='text-center'>Sản phẩm</th>
+                <th className='text-left'>Sản phẩm</th>
                 <th>Iamge</th>
                 <th>GIÁ</th>
                 <th className="text-center">SỐ LƯỢNG</th>
@@ -55,7 +52,7 @@ const card = (props: Props) => {
                 // eslint-disable-next-line react/jsx-key
                 <tr className="text-center">
                 <td>
-                    <p className="name p-6">{item.name}</p>
+                    <p className=" text-left">{item.name}</p>
                 </td>
                 <td>
                 <img className="w-[144pxpx] h-[76px] m-auto"  src={`${item.image}`} alt="" />
@@ -84,33 +81,35 @@ const card = (props: Props) => {
               
             </tbody>
           </table>
-          <div className="add-card flex justify-between">
-            
-          {/* <button className="btn-card">Cập nhật giỏ hàng</button> */}
+          <div className="add-card flex  ">
+            <button className='border-2 border-rose-300 pr-4 pl-4 p-2'>Tiếp tục xem sản phẩm</button>
+          <button className="btn-card bg-[#ff6c8d] ml-6 rounded-lg pr-4 pl-4">Cập nhật giỏ hàng</button>
         </div>
         </div>
-        <div className="rol"></div>
+        <div className="rol border-r-2 border-bg-[##ececec]"></div>
         <div className="detail-cart">
-            <h2 className="br">TỔNG SỐ LƯỢNG</h2>
-              <div className="br hi1 pd flex justify-between">
+            <h2 className="br border-b-2 border-bg-[##ececec]">TỔNG SỐ LƯỢNG</h2>
+              <div className="br hi1 pd flex justify-between border-b-2 border-bg-[##ececec] pt-2">
                 <p>Tổng phụ</p>
                 <p className="text-[#ff6c8d]">550,000 ₫</p>
               </div>
               <div >
-                <p className="text-right">Giao hàng miễn phí</p>
+                <p className="text-right pt-2">Giao hàng miễn phí</p>
             </div>
-              <div className="hi1 pd pt-2 pb-2">
+              <div className=" pd pt-2 pb-2">
                 <p>Giao hàng</p>
                 <p>Đây chỉ là ước tính. Giá sẽ cập nhật trong quá trình thanh toán</p>
               </div>
               <div className="giaohang text-right br">
                 <a href="">Tính phí giao hàng</a>
               </div>
-              <div className="br hi1 pd flex justify-between pt-2 pb-2">
+              <div className="br hi1 pd flex justify-between pt-2 pb-2 border-b-2 border-bg-[##ececec] pt-2">
                 <p>Tổng</p>
                 <p className="text-[#ff6c8d]">550,000 ₫</p>
               </div>
-           <button className="btn m-auto bg-[#d26e4b] p-2 w-[100%]">Tiến Hành Thanh Toán</button>
+           <button className="btn m-auto bg-[#d26e4b] p-2 w-[100%] mt-4">Tiến Hành Thanh Toán</button>
+           <p className='font-bold pt-4 border-b-2 border-bg-[##ececec] '>Phiếu ữu đãi</p>
+           <input type="text" name="coupon_code" className="input-text m-auto" id="coupon_code" value="" placeholder="Mã ưu đãi"></input>
         </div>
     </div>
 </main>
