@@ -27,20 +27,31 @@ const Header = (props: Props) => {
         })
     })
 
+    const admigement = (id : string) => {
+        if(id == '62da966e2d800bb8983c121d'){
+            return (
+                <ul>
+                    <li><Link href={'/admin'}>Admin</Link></li>
+                </ul>
+            )
+        }
+    }
+
     return (
         <div>
             <header id={style.header}>
                 <div className={style.container}>
                     <div className={style.header_top}>
                         {status ? (
-
                             <div className='text-white'>
-                                <button className='hover:text-red-700 ... ml-[60px]' onClick={()=>{
+                               <div className='flex'>
+                               <button className='hover:text-red-700 ...' onClick={()=>{
                                     setstatus(false)
                                     localStorage.removeItem('user')
-                                }} ><FaPowerOff /></button>
-                                <p>Chào {user.item.user.name}</p>
-                            
+                                }} ><FaPowerOff /></button> <div>{admigement(user.item.user._id)}</div>
+                               </div>
+                                <p className='mt-[10px]'>Chào {user.item.user.name}</p>
+                                
                             </div>
 
                         ) : (
