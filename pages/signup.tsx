@@ -5,6 +5,7 @@ import { mutate } from 'swr'
 import { signup } from '../api/user'
 import toastr from "toastr"
 import 'toastr/build/toastr.min.css'
+import lognin from '../components/Layout/lognin'
 type Props = {}
 type form = {
     name: string,
@@ -23,7 +24,7 @@ const Signup = (props: Props) => {
 
   return (
     <div className={`h-screen relative`}>
-        <div className={`border border-solid border-slate-900 rounded-2xl bg-white absolute left-1/3 top-36 text-center`}>
+        <div className={`border border-solid border-slate-900 rounded-2xl bg-white absolute left-1/3 mt-[30px] text-center`}>
         <h1 className={`text-6xl py-8 px-8 `}>Login Form</h1>
         <div className={`auth flex justify-center pb-8 px-32`}>
             <div className={` border-slate-900 border py-3  border-solid rounded `}>
@@ -80,5 +81,5 @@ const Signup = (props: Props) => {
     </div>
   )
 }
-
+Signup.Layout = lognin
 export default Signup

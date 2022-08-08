@@ -4,6 +4,7 @@ import {SubmitHandler, useForm} from 'react-hook-form'
 import userpertion from '../hooks/user'
 import toastr from "toastr"
 import 'toastr/build/toastr.min.css'
+import lognin from '../components/Layout/lognin'
 type Props = {}
 type form = {
     email: string,
@@ -25,8 +26,8 @@ const Signin = (props: Props) => {
     };
     
   return (
-    <div className={` h-screen relative`}>
-        <div className={` border-slate-900 border border-solid rounded-2xl bg-white absolute left-1/3 top-48 text-center`}>
+    <div className={` h-screen relative `}>
+        <div className={`border-slate-900 border border-solid rounded-2xl bg-white absolute mt-[30px] left-1/3 text-center`}>
         <h1 className={`text-6xl py-8 px-8 `}>Login Form</h1>
         <div className={`auth flex justify-center pb-8 px-32`}>
             <div className={` border-slate-900 border py-3  border-solid rounded  bg-fuchsia-600`}>
@@ -73,5 +74,5 @@ const Signin = (props: Props) => {
     </div>
   )
 }
-
+Signin.Layout = lognin
 export default Signin
