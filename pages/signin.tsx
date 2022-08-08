@@ -15,8 +15,8 @@ const Signin = (props: Props) => {
     const {signinuser} = userpertion()
     const router = useRouter();
     const onSubmit: SubmitHandler<form> = data => {
-        signinuser(data).then(() => {
-            localStorage.setItem('user', JSON.stringify(data))
+        signinuser(data).then((res) => {
+            localStorage.setItem('user', JSON.stringify(res))
             router.push('/')
             toastr.success("Đăng nhập thành công ")
         }
