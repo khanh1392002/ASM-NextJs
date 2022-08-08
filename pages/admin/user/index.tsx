@@ -3,7 +3,7 @@ import React, { useRef } from 'react'
 import adminlayout from '../../../components/Layout/adminlayout'
 import userpertion from '../../../hooks/user'
 import { User } from '../../../type/user'
-
+import style from '../../../styles/Home.module.css'
 type Props = {}
 
 const listProducts = (props: Props) => {
@@ -23,7 +23,8 @@ const listProducts = (props: Props) => {
         
       }
     }
-    if(!data) return <div>Loading...</div>
+  if (!data) return <div className={style.load_man}>
+  </div>
     if(error) return <div>Error...</div>
     return (
       <div>
