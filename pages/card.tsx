@@ -42,6 +42,7 @@ const card = (props: Props) => {
     if (confirm) {
       let temp = card.filter(item => item._id !== id)
       localStorage.setItem('cart', JSON.stringify(temp))
+      setcart(temp)
     }
   }
 
