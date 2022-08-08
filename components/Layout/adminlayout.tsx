@@ -1,14 +1,18 @@
 import Link from 'next/link'
 import React from 'react'
+
 import { layoutProps } from '../../model/layout'
 
 type Props = {}
 
 const adminlayout = ({children}: layoutProps) => {
+ 
+
+
   return (
     <div>
         <div><div className="min-h-full">
-  <nav className="bg-gray-800">
+  <div className="bg-gray-800">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex items-center justify-between h-16">
         <div className="flex items-center">
@@ -109,7 +113,7 @@ const adminlayout = ({children}: layoutProps) => {
         </div>
       </div>
     </div>
-  </nav>
+  </div>
 
   <header className="bg-white shadow">
     <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">

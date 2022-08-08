@@ -1,13 +1,45 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import adminlayout from '../../components/Layout/adminlayout'
+import usercategories from '../../hooks/categories'
+import useProduct from '../../hooks/product'
+import userpertion from '../../hooks/user'
+import {FaRegKissWinkHeart,FaCertificate,FaBoxOpen,FaCalculator  } from "react-icons/fa";
 
 type Props = {}
 
 const admin = (props: Props) => {
+    const { data: pd } = useProduct()
+    const { data: ct } = usercategories()
+    const { data: user } = userpertion()
+    if (!pd) return <div>Loading....</div>
+    if (!ct) return <div>Loading....</div>
+    if (!user) return <div>Loading....</div>
+
+
+    const countpd = () => {
+        let count = pd.length
+        console.log(count)
+        return (
+            count
+        )
+    }
+    const countct = () => {
+        let count = ct.length
+        return (
+            count
+        )
+    }
+    const countuser = () => {
+        let count = user.length
+        return (
+            count
+        )
+    }
+   
     return (
-       <div className="max-w-7xl mx-auto py-6 px-4">
-        <div className="border-4 border-dashed border-gray-200 rounded-lg ">
-            <div className="max-w-6xl mx-auto sm:px-5 ">
+        <div className="max-w-7xl mx-auto py-6 px-4">
+            <div className="border-4 border-dashed border-gray-200 rounded-lg ">
+                <div className="max-w-6xl mx-auto sm:px-5 ">
                     <main className=" ">
                         <div className="mx-auto p-2">
                             {/* row */}
@@ -22,11 +54,11 @@ const admin = (props: Props) => {
                                         {/* target widget */}
                                         <div className="flex-shrink max-w-full px-4 w-full sm:w-1/2 lg:w-1/4 mb-6">
                                             <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg h-full p-6 relative overflow-hidden">
-                                                <h3 className="text-base font-bold mb-2">Sales</h3>
-                                                <h2 className="text-3xl font-bold mb-4">1,200</h2>
+                                                <h3 className="text-base font-bold mb-2">Products</h3>
+                                                <h2 className="text-3xl font-bold mb-4 flex">{countpd()} <span className='ml-[50px]'><FaBoxOpen/></span></h2>
                                                 {/* target */}
                                                 <div className="flex flex-row justify-between w-full">
-                                                    <div className="flex items-center" title="Target">
+                                                    {/* <div className="flex items-center" title="Target">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} fill="currentColor" className="mr-2 bi bi-calendar-check" viewBox="0 0 16 16">
                                                             <path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
                                                             <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
@@ -34,7 +66,7 @@ const admin = (props: Props) => {
                                                     </div>
                                                     <div className="flex items-center text-green-500">
                                                         +5%
-                                                    </div>
+                                                    </div> */}
                                                 </div>
                                                 {/* bg circle */}
                                                 <div className="absolute ltr:-right-16 rtl:-left-16 -top-16">
@@ -48,11 +80,11 @@ const admin = (props: Props) => {
                                         {/* target widget */}
                                         <div className="flex-shrink max-w-full px-4 w-full sm:w-1/2 lg:w-1/4 mb-6">
                                             <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg h-full p-6 relative overflow-hidden">
-                                                <h3 className="text-base font-bold mb-2">Revenue</h3>
-                                                <h2 className="text-3xl font-bold mb-4">$12,500</h2>
+                                                <h3 className="text-base font-bold mb-2">Categories</h3>
+                                                <h2 className="text-3xl font-bold mb-4 flex">{countct()} <span className='ml-[50px]'><FaCertificate/></span></h2>
                                                 {/* target */}
                                                 <div className="flex flex-row justify-between w-full">
-                                                    <div className="flex items-center" title="Target">
+                                                    {/* <div className="flex items-center" title="Target">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} fill="currentColor" className="mr-2 bi bi-calendar-check" viewBox="0 0 16 16">
                                                             <path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
                                                             <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
@@ -60,7 +92,7 @@ const admin = (props: Props) => {
                                                     </div>
                                                     <div className="flex items-center text-green-500">
                                                         +25%
-                                                    </div>
+                                                    </div> */}
                                                 </div>
                                                 {/* bg circle */}
                                                 <div className="absolute ltr:-right-16 rtl:-left-16 -top-16">
@@ -74,11 +106,11 @@ const admin = (props: Props) => {
                                         {/* target widget */}
                                         <div className="flex-shrink max-w-full px-4 w-full sm:w-1/2 lg:w-1/4 mb-6">
                                             <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg h-full p-6 relative overflow-hidden">
-                                                <h3 className="text-base font-bold mb-2">Profit</h3>
-                                                <h2 className="text-3xl font-bold mb-4">$5,200</h2>
+                                                <h3 className="text-base font-bold mb-2">User</h3>
+                                                <h2 className="text-3xl font-bold mb-4 flex"><span>{countuser()}</span> <span className='ml-[50px]'><FaRegKissWinkHeart/></span></h2>
                                                 {/* target */}
                                                 <div className="flex flex-row justify-between w-full">
-                                                    <div className="flex items-center" title="Target">
+                                                    {/* <div className="flex items-center" title="Target">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} fill="currentColor" className="mr-2 bi bi-calendar-check" viewBox="0 0 16 16">
                                                             <path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
                                                             <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
@@ -86,7 +118,7 @@ const admin = (props: Props) => {
                                                     </div>
                                                     <div className="flex items-center text-green-500">
                                                         +10%
-                                                    </div>
+                                                    </div> */}
                                                 </div>
                                                 {/* bg circle */}
                                                 <div className="absolute ltr:-right-16 rtl:-left-16 -top-16">
@@ -100,11 +132,11 @@ const admin = (props: Props) => {
                                         {/* target widget */}
                                         <div className="flex-shrink max-w-full px-4 w-full sm:w-1/2 lg:w-1/4 mb-6">
                                             <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg h-full p-6 relative overflow-hidden">
-                                                <h3 className="text-base font-bold mb-2">Costs</h3>
-                                                <h2 className="text-3xl font-bold mb-4">$7,200</h2>
+                                                <h3 className="text-base font-bold mb-2">Total</h3>
+                                                <h2 className="text-3xl font-bold mb-4 flex">{countpd() + countuser() + countct()}  <span className='ml-[50px]'><FaCalculator/></span></h2>
                                                 {/* target */}
                                                 <div className="flex flex-row justify-between w-full">
-                                                    <div className="flex items-center" title="Target">
+                                                    {/* <div className="flex items-center" title="Target">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} fill="currentColor" className="mr-2 bi bi-calendar-check" viewBox="0 0 16 16">
                                                             <path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
                                                             <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
@@ -112,7 +144,7 @@ const admin = (props: Props) => {
                                                     </div>
                                                     <div className="flex items-center text-red-500">
                                                         -15%
-                                                    </div>
+                                                    </div> */}
                                                 </div>
                                                 {/* bg circle */}
                                                 <div className="absolute ltr:-right-16 rtl:-left-16 -top-16">
@@ -222,9 +254,9 @@ const admin = (props: Props) => {
                             </div>
                         </div>
                     </main>
+                </div>
             </div>
         </div>
-       </div>
     )
 }
 admin.Layout = adminlayout
