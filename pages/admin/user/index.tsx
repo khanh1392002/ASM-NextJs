@@ -50,7 +50,7 @@ const listProducts = (props: Props) => {
              <tr className='bg-orange-500 h-[40px]'>
                <td className='p-[10px] text-center font-bold text-white'>STT</td>
                <td className='p-[15px] text-center font-bold text-white'>Name</td>
-               <td className='p-[15px] text-center font-bold text-white'>Password</td>
+          
                <td className='p-[15px] text-center font-bold text-white'>Email</td>
 
                <td className='p-[15px] text-center font-bold text-white'>Edit</td>
@@ -60,7 +60,7 @@ const listProducts = (props: Props) => {
                <tr key={item._id} className="py-[10px] my-[30px] ">
                  <td className='text-center'>{index + 1}</td>
                  <td className='text-center'>{item.name}</td>
-                 <td className='text-center'>{item.password}</td>
+                
                  <td className='text-center'>{item.email}</td>
                  <td className='text-center'>
                    <Link className='' href={`/admin/user/edit/${item._id}`}>
