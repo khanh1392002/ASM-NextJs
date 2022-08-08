@@ -15,7 +15,7 @@ const adminlayout = ({children}: layoutProps) => {
           <div className="flex-shrink-0">
             <img className="h-8 w-8" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow"/>
           </div>
-          <div className="hidden md:block">
+          <div className=" md:block">
             <div className="ml-10 flex items-baseline space-x-4">
               
               <span className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"><Link href="/admin"  aria-current="page">Home</Link></span>
