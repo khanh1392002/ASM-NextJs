@@ -5,7 +5,7 @@ import usercategories from '../../hooks/categories'
 import useProduct from '../../hooks/product'
 import { CateType } from '../../type/categories'
 import { Iproduct } from '../../type/products'
-
+import style from '../../styles/Home.module.css'
 
 type Props = {}
 
@@ -15,8 +15,8 @@ const ProductList = (props: Props) => {
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const { data, error, mutate } = useProduct()
-    if (!data) return <div>Loading....</div>
-    if (error) return <div>Error !</div>
+    if (!data) return <div className={style.load_man}></div>
+    if (error) return <div >Error !</div>
     return (
         <div>
             <main>

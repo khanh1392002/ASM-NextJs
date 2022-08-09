@@ -1,14 +1,18 @@
 import Link from 'next/link'
 import React from 'react'
+
 import { layoutProps } from '../../model/layout'
 
 type Props = {}
 
 const adminlayout = ({children}: layoutProps) => {
+ 
+
+
   return (
     <div>
         <div><div className="min-h-full">
-  <nav className="bg-gray-800">
+  <div className="bg-gray-800">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="flex items-center justify-between h-16">
         <div className="flex items-center">
@@ -49,14 +53,7 @@ const adminlayout = ({children}: layoutProps) => {
               </div>
 
              
-              <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" >
-               
-                <a href="#" className="block px-4 py-2 text-sm text-gray-700" role="menuitem"  id="user-menu-item-0">Your Profile</a>
-
-                <a href="#" className="block px-4 py-2 text-sm text-gray-700" role="menuitem"  id="user-menu-item-1">Settings</a>
-
-                <a href="#" className="block px-4 py-2 text-sm text-gray-700" role="menuitem"  id="user-menu-item-2">Sign out</a>
-              </div>
+              
             </div>
           </div>
         </div>
@@ -117,7 +114,7 @@ const adminlayout = ({children}: layoutProps) => {
         </div>
       </div>
     </div>
-  </nav>
+  </div>
 
   <header className="bg-white shadow">
     <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
@@ -125,13 +122,6 @@ const adminlayout = ({children}: layoutProps) => {
     </div>
   </header>
   <main>
-    <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-      
-      <div className="px-4 py-6 sm:px-0">
-
-      </div>
-     
-    </div>
   </main>
         </div></div>
         {children}

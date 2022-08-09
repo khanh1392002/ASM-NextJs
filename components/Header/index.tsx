@@ -78,7 +78,7 @@ const Header = (props: Props) => {
                         <li className={style.list_item}><Link href="/">TRANG CHỦ</Link></li>
                         <li className={style.list_item}><Link href="">GIỚI THIỆU</Link></li>
                         <li className={style.list_item}><Link href="/Products">CỬA HÀNG</Link></li>
-                        <li className={style.list_item}><Link href="">TIN TỨC</Link></li>
+                        <li className={style.list_item}><Link href="/news">TIN TỨC</Link></li>
                         <li className={style.list_item}><Link href="">LIÊN HỆ</Link></li>
                     </ul>
                 </nav>
