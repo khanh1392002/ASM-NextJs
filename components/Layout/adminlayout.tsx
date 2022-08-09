@@ -24,6 +24,7 @@ const adminlayout = ({children}: layoutProps) => {
 
               <span className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"><Link href="/admin/products"  aria-current="page">Products</Link></span>
               <span className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"><Link href="/admin/user"  aria-current="page">User</Link></span>
+              <span className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"><Link href="/admin/news"  aria-current="page">News</Link></span>
               <span className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"><Link href="/"  aria-current="page">Home Page</Link></span>
             </div>
           </div>
