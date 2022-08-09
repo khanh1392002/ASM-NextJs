@@ -20,7 +20,8 @@ const Signin = (props: Props) => {
             localStorage.setItem('user', JSON.stringify(res))
             router.push('/')
             toastr.success("Đăng nhập thành công ")
-        }
+        },
+            
             )
         
     };

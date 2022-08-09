@@ -68,7 +68,7 @@ const Home: NextPage = () => {
               <div className={style.product_item}>
                 <img  src={`${item.image}`} alt="" />
                 <div className={style.product_title}>
-                <Link href={`/products/${item._id}`}>
+                <Link href={`/Products/${item._id}`}>
                                 {item.name}
                             </Link>
                   <p className="price">
